@@ -35,30 +35,30 @@ def ocr_pdf_pages(input_pdf_path, output_text_file):
     # Close the PDF file
     pdf_document.close()
 
-@st.cache_data
-def ocr_folder(input_folder, output_folder):
-    # Create the output folder if it doesn't exist
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+# @st.cache_data
+# def ocr_folder(input_folder, output_folder):
+#     # Create the output folder if it doesn't exist
+#     if not os.path.exists(output_folder):
+#         os.makedirs(output_folder)
 
-    # Iterate through all files in the input folder
-    for filename in os.listdir(input_folder):
-        if filename.endswith(".pdf"):
-            # Generate the output file path
-            input_file_path = os.path.join(input_folder, filename)
-            output_file_path = os.path.join(output_folder, filename.replace(".pdf", ".txt"))
+#     # Iterate through all files in the input folder
+#     for filename in os.listdir(input_folder):
+#         if filename.endswith(".pdf"):
+#             # Generate the output file path
+#             input_file_path = os.path.join(input_folder, filename)
+#             output_file_path = os.path.join(output_folder, filename.replace(".pdf", ".txt"))
 
-            # Perform OCR on the PDF and save the text to the output file
-            ocr_pdf_pages(input_file_path, output_file_path)
+#             # Perform OCR on the PDF and save the text to the output file
+#             ocr_pdf_pages(input_file_path, output_file_path)
 
 @st.cache_data
 def process_library_text():
     library_dict = {}
     
 
-    for filename in os.listdir('Library_TEXT'):
+    for filename in os.listdir('Squire_GPT/Library_TEXT'):
         if filename.endswith('.txt'):
-            with open(os.path.join('Library_TEXT', filename), 'r', encoding='utf-8') as file:
+            with open(os.path.join('Squire_GPT/Library_TEXT', filename), 'r', encoding='utf-8') as file:
                 content = file.read()
 
                 # Find all occurrences of "Page: {page number}" and split the content accordingly
