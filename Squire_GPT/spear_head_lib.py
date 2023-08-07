@@ -191,14 +191,14 @@ def init_session():
         st.session_state.query_engine = build_index(st.session_state.nodes, st.session_state.chunk_dict)
 
 def streamlit_interface(query_engine):
-    st.title('Search the Opioid Relief Info')
+    st.title('Search the Opioid Relief Info :pill:')
     user_query = st.text_input('Enter your query:', '')
 
     # Create a placeholder for the instructions
     instruction_placeholder = st.empty()
 
     # Display instructions in the placeholder if search has not been performed
-    instruction_placeholder.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running. In your results, you'll find the Response to your query, it's Sources, their Page numbers, and how similar from 0 - 1 your question matched up with the information in the document. ")
+    instruction_placeholder.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running. \nIn your results, you'll find the Response to your query, it's Sources, their Page numbers, and how similar from 0 - 1 your question matched up with the information in the document. ")
 
     if st.button('Search'):
         # Clear the instructions from the placeholder
