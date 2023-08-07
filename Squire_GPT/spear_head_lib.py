@@ -198,7 +198,7 @@ def streamlit_interface(query_engine):
     instruction_placeholder = st.empty()
 
     # Display instructions in the placeholder if search has not been performed
-    instruction_placeholder.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running.")
+    instruction_placeholder.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running. In your results, you'll find the Response to your query, it's Sources, their Page numbers, and how similar from 0 - 1 your question matched up with the information in the document. ")
 
     if st.button('Search'):
         # Clear the instructions from the placeholder
