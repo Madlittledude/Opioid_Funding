@@ -11,7 +11,7 @@ from llama_index.query_engine import RetrieverQueryEngine
 from llama_index.indices.postprocessor import SimilarityPostprocessor
 import openai
 
-openai.api_key = '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'
+openai.api_key = environ['OPENAI_API_KEY']
 
 @st.cache_data
 def ocr_pdf_pages(input_pdf_path, output_text_file):
