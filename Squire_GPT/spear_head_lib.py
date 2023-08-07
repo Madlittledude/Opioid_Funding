@@ -191,9 +191,10 @@ def init_session():
         st.session_state.query_engine = build_index(st.session_state.nodes, st.session_state.chunk_dict)
 
 def streamlit_interface(query_engine):
-    st.title('Search the Index')
+    st.title('Search the Opioid Relief Info')
     user_query = st.text_input('Enter your query:', '')
     if st.button('Search'):
+        st.write('Look at the top right, make sure it's running. Don't press it Search until you see it stop running.')
         if user_query:
             response = query_index(user_query, query_engine)
             st.write('Result:')
