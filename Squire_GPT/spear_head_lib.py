@@ -194,17 +194,16 @@ def streamlit_interface(query_engine):
     st.title('Search the Opioid Relief Info')
     user_query = st.text_input('Enter your query:', '')
 
-    # Use a session state variable to track whether the search has been performed
-    if 'search_performed' not in st.session_state:
-        st.session_state.search_performed = False
+    # Create a placeholder for the instructions
+    instruction_placeholder = st.empty()
 
-    # Display instructions only if the search has not been performed
-    if not st.session_state.search_performed:
-        st.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running.")
+    # Display instructions in the placeholder if search has not been performed
+    instruction_placeholder.write("Enter your query and press the Search button. Look at the top right, make sure it's running. Don't press Search again until you see it stop running.")
 
     if st.button('Search'):
-        # Set the session state variable to indicate that the search has been performed
-        st.session_state.search_performed = True
+        # Clear the instructions from the placeholder
+        instruction_placeholder.empty()
+
 
         if user_query:
             response = query_index(user_query, query_engine)
